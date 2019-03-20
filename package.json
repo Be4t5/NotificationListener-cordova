@@ -1,5 +1,5 @@
 {
-    "version": "0.0.1",
+    "version": "0.0.2",
     "name": "net.coconauts.notification-listener",
     "cordova_name": "Notification-listener",
     "description": "Notification listener Plugin for Android",
