@@ -22,6 +22,6 @@ module.exports = {
         cordova.exec(success, failure, 'NotificationListener', 'listen', []);
     },
     init: function (success, failure) {
-        cordova.exec(success, failure, 'NotificationListener', 'listen', []);
+        cordova.exec(success, failure, 'NotificationListener', 'init', []);
     }
 };
