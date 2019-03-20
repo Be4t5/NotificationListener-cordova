@@ -2,16 +2,13 @@
 <plugin
     xmlns="http://www.phonegap.com/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="net.coconauts.notification-listener"
+    id="com.accessibilityService"
     version="0.0.2">
 
     <name>Notification-listener</name>
     <description>Notification listener Plugin for Android</description>
     <license>Apache 2.0</license>
     <keywords>notification, listener, android</keywords>
-
-    <repo>https://github.com/coconauts/NotificationListener-cordova</repo>
-    <issue>https://github.com/coconauts/NotificationListener-cordova/issues</issue>
 
     <engines>
         <engine name="cordova" version=">=3.1.0" />
@@ -24,27 +21,27 @@
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="NotificationListener">
-                <param name="android-package" value="net.coconauts.notificationListener.NotificationCommands"/>
+                <param name="android-package" value="com.accessibilityService.NotificationCommands"/>
             </feature>
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="/*">
-            <uses-permission android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"/>
+            <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE"/>
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
 
-            <service  android:name="net.coconauts.notificationListener.NotificationService"
-                      android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" >
+            <service  android:name=".MyAccessibilityService"
+                      android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
                 <intent-filter>
-                    <action android:name="android.service.notification.NotificationListenerService" ></action>
+                    <action android:name="android.accessibilityservice.AccessibilityService" ></action>
                 </intent-filter>
             </service>
 
         </config-file>
 
-        <source-file src="src/android/NotificationService.java"  target-dir="src/net/coconauts/notificationListener"/>
-        <source-file src="src/android/NotificationCommands.java"  target-dir="src/net/coconauts/notificationListener"/>
+        <source-file src="src/android/NotificationService.java"  target-dir="src/com/accessibilityService/notificationListener"/>
+        <source-file src="src/android/NotificationCommands.java"  target-dir="src/com/accessibilityService/notificationListener"/>
 
     </platform>
 
