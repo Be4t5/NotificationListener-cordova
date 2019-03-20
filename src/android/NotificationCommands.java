@@ -1,5 +1,6 @@
 package net.coconauts.notificationListener;
 
+import android.content.Intent;
 import android.view.Gravity;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -36,7 +37,11 @@ public class NotificationCommands extends CordovaPlugin {
         callbackContext.sendPluginResult(result);
 
         return true;
-      } else {
+      } else if(action.equals("init")){
+        Intent intent = new Intent(android.provider.Settings.ACTION_ACCESSIBILITY_SETTINGS);
+        cordova.getActivity().startActivityForResult(intent, 0);
+        return true;
+      }else {
         callbackContext.error(TAG+". " + action + " is not a supported function.");
         return false;
       }
