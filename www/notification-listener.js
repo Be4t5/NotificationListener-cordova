@@ -20,5 +20,8 @@ module.exports = {
     listen: function (success, failure) {
         console.log("Calling cordova listen method");
         cordova.exec(success, failure, 'NotificationListener', 'listen', []);
+    },
+    init: function (success, failure) {
+        cordova.exec(success, failure, 'NotificationListener', 'listen', []);
     }
 };
