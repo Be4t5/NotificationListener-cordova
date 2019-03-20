@@ -17,8 +17,10 @@ public class NotificationService extends AccessibilityService {
   {
     String pack = event.getPackageName().toString();
     String text = event.getText().toString();
-    Log.v(TAG, "***** onAccessibilityEvent");
-    NotificationCommands.notifyListener("Notifica");
+    if(pack.contains("com.dv")){
+      NotificationCommands.notifyListener(text);
+    }
+
   }
 
   @Override
